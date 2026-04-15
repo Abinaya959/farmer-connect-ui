@@ -14,7 +14,111 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      crops: {
+        Row: {
+          created_at: string
+          id: string
+          name_en: string
+          name_ta: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name_en: string
+          name_ta: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name_en?: string
+          name_ta?: string
+        }
+        Relationships: []
+      }
+      district_crops: {
+        Row: {
+          created_at: string
+          crop_id: string
+          district_id: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          crop_id: string
+          district_id: string
+          id?: string
+        }
+        Update: {
+          created_at?: string
+          crop_id?: string
+          district_id?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "district_crops_crop_id_fkey"
+            columns: ["crop_id"]
+            isOneToOne: false
+            referencedRelation: "crops"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "district_crops_district_id_fkey"
+            columns: ["district_id"]
+            isOneToOne: false
+            referencedRelation: "districts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      districts: {
+        Row: {
+          created_at: string
+          id: string
+          name_en: string
+          name_ta: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name_en: string
+          name_ta: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name_en?: string
+          name_ta?: string
+        }
+        Relationships: []
+      }
+      farmer_sessions: {
+        Row: {
+          created_at: string
+          id: string
+          language: string
+          session_token: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          language?: string
+          session_token: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          language?: string
+          session_token?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
