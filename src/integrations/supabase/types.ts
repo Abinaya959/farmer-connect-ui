@@ -14,24 +14,111 @@ export type Database = {
   }
   public: {
     Tables: {
-      crops: {
+      analysis_sessions: {
         Row: {
           created_at: string
+          crop_id: string | null
+          district_id: string | null
+          farmer_session_id: string
+          humidity: number | null
           id: string
-          name_en: string
-          name_ta: string
+          land_size_acres: number | null
+          recommendations: string[] | null
+          risk_level: string | null
+          risk_reasons: string[] | null
+          risk_score: number | null
+          season: string | null
+          session_type: string
+          spoilage_hours: number | null
+          storage_days: number | null
+          temperature: number | null
+          updated_at: string
         }
         Insert: {
           created_at?: string
+          crop_id?: string | null
+          district_id?: string | null
+          farmer_session_id: string
+          humidity?: number | null
           id?: string
-          name_en: string
-          name_ta: string
+          land_size_acres?: number | null
+          recommendations?: string[] | null
+          risk_level?: string | null
+          risk_reasons?: string[] | null
+          risk_score?: number | null
+          season?: string | null
+          session_type?: string
+          spoilage_hours?: number | null
+          storage_days?: number | null
+          temperature?: number | null
+          updated_at?: string
         }
         Update: {
           created_at?: string
+          crop_id?: string | null
+          district_id?: string | null
+          farmer_session_id?: string
+          humidity?: number | null
           id?: string
+          land_size_acres?: number | null
+          recommendations?: string[] | null
+          risk_level?: string | null
+          risk_reasons?: string[] | null
+          risk_score?: number | null
+          season?: string | null
+          session_type?: string
+          spoilage_hours?: number | null
+          storage_days?: number | null
+          temperature?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      crops: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          ideal_humidity_max: number
+          ideal_humidity_min: number
+          ideal_temp_max: number
+          ideal_temp_min: number
+          max_storage_days: number
+          name_en: string
+          name_ta: string
+          risk_factors: string[]
+          seasons: string[]
+          yield_per_acre_kg: number
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          id?: string
+          ideal_humidity_max?: number
+          ideal_humidity_min?: number
+          ideal_temp_max?: number
+          ideal_temp_min?: number
+          max_storage_days?: number
+          name_en: string
+          name_ta: string
+          risk_factors?: string[]
+          seasons?: string[]
+          yield_per_acre_kg?: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          ideal_humidity_max?: number
+          ideal_humidity_min?: number
+          ideal_temp_max?: number
+          ideal_temp_min?: number
+          max_storage_days?: number
           name_en?: string
           name_ta?: string
+          risk_factors?: string[]
+          seasons?: string[]
+          yield_per_acre_kg?: number
         }
         Relationships: []
       }
@@ -73,18 +160,21 @@ export type Database = {
       }
       districts: {
         Row: {
+          climate_zone: string
           created_at: string
           id: string
           name_en: string
           name_ta: string
         }
         Insert: {
+          climate_zone?: string
           created_at?: string
           id?: string
           name_en: string
           name_ta: string
         }
         Update: {
+          climate_zone?: string
           created_at?: string
           id?: string
           name_en?: string
@@ -97,6 +187,7 @@ export type Database = {
           created_at: string
           id: string
           language: string
+          last_active_at: string
           session_token: string
           updated_at: string
           user_id: string | null
@@ -105,7 +196,8 @@ export type Database = {
           created_at?: string
           id?: string
           language?: string
-          session_token: string
+          last_active_at?: string
+          session_token?: string
           updated_at?: string
           user_id?: string | null
         }
@@ -113,9 +205,100 @@ export type Database = {
           created_at?: string
           id?: string
           language?: string
+          last_active_at?: string
           session_token?: string
           updated_at?: string
           user_id?: string | null
+        }
+        Relationships: []
+      }
+      mandi_prices: {
+        Row: {
+          created_at: string
+          crop_name_en: string
+          crop_name_ta: string
+          current_price_per_kg: number
+          id: string
+          location: string
+          prices_last_7_days: Json
+          unit: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          crop_name_en: string
+          crop_name_ta: string
+          current_price_per_kg?: number
+          id?: string
+          location?: string
+          prices_last_7_days?: Json
+          unit?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          crop_name_en?: string
+          crop_name_ta?: string
+          current_price_per_kg?: number
+          id?: string
+          location?: string
+          prices_last_7_days?: Json
+          unit?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      schemes: {
+        Row: {
+          apply_link: string | null
+          benefits_en: string
+          benefits_ta: string
+          cold_storage_support: boolean
+          contact_info: string | null
+          created_at: string
+          description_en: string
+          description_ta: string
+          eligibility_en: string
+          eligibility_ta: string
+          id: string
+          is_active: boolean
+          name_en: string
+          name_ta: string
+          scheme_type: string
+        }
+        Insert: {
+          apply_link?: string | null
+          benefits_en?: string
+          benefits_ta?: string
+          cold_storage_support?: boolean
+          contact_info?: string | null
+          created_at?: string
+          description_en?: string
+          description_ta?: string
+          eligibility_en?: string
+          eligibility_ta?: string
+          id?: string
+          is_active?: boolean
+          name_en: string
+          name_ta: string
+          scheme_type?: string
+        }
+        Update: {
+          apply_link?: string | null
+          benefits_en?: string
+          benefits_ta?: string
+          cold_storage_support?: boolean
+          contact_info?: string | null
+          created_at?: string
+          description_en?: string
+          description_ta?: string
+          eligibility_en?: string
+          eligibility_ta?: string
+          id?: string
+          is_active?: boolean
+          name_en?: string
+          name_ta?: string
+          scheme_type?: string
         }
         Relationships: []
       }
