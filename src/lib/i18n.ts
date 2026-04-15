@@ -1,0 +1,58 @@
+export type Language = 'en' | 'ta';
+
+export const translations = {
+  en: {
+    appName: 'VIVASAI',
+    appTagline: 'Smart Farming Assistant',
+    login: 'Login',
+    loginTitle: 'Welcome to VIVASAI',
+    loginSubtitle: 'Enter your email to get started',
+    emailPlaceholder: 'Enter your email',
+    sendOtp: 'Send Login Link',
+    otpSent: 'Login link sent! Check your email.',
+    selectDistrict: 'Select District',
+    selectCrop: 'Select Crop',
+    districtLabel: 'District',
+    cropLabel: 'Crop',
+    noCropsAvailable: 'No crops available for this district',
+    selectDistrictFirst: 'Please select a district first',
+    loading: 'Loading...',
+    error: 'Something went wrong. Please try again.',
+    logout: 'Logout',
+    language: 'Language',
+    english: 'English',
+    tamil: 'தமிழ்',
+    welcome: 'Welcome, Farmer!',
+    getStarted: 'Get Started',
+    chooseLocation: 'Choose your location and crop',
+  },
+  ta: {
+    appName: 'விவசாய்',
+    appTagline: 'புத்திசாலி விவசாய உதவியாளர்',
+    login: 'உள்நுழை',
+    loginTitle: 'விவசாய்க்கு வரவேற்கிறோம்',
+    loginSubtitle: 'தொடங்க உங்கள் மின்னஞ்சலை உள்ளிடவும்',
+    emailPlaceholder: 'மின்னஞ்சலை உள்ளிடவும்',
+    sendOtp: 'உள்நுழைவு இணைப்பை அனுப்பு',
+    otpSent: 'உள்நுழைவு இணைப்பு அனுப்பப்பட்டது! உங்கள் மின்னஞ்சலை சரிபார்க்கவும்.',
+    selectDistrict: 'மாவட்டத்தை தேர்ந்தெடுக்கவும்',
+    selectCrop: 'பயிரை தேர்ந்தெடுக்கவும்',
+    districtLabel: 'மாவட்டம்',
+    cropLabel: 'பயிர்',
+    noCropsAvailable: 'இந்த மாவட்டத்தில் பயிர்கள் கிடைக்கவில்லை',
+    selectDistrictFirst: 'முதலில் ஒரு மாவட்டத்தை தேர்ந்தெடுக்கவும்',
+    loading: 'ஏற்றுகிறது...',
+    error: 'ஏதோ தவறாகிவிட்டது. மீண்டும் முயற்சிக்கவும்.',
+    logout: 'வெளியேறு',
+    language: 'மொழி',
+    english: 'English',
+    tamil: 'தமிழ்',
+    welcome: 'வணக்கம், விவசாயி!',
+    getStarted: 'தொடங்கு',
+    chooseLocation: 'உங்கள் இருப்பிடம் மற்றும் பயிரை தேர்ந்தெடுக்கவும்',
+  },
+} as const;
+
+export function t(lang: Language, key: keyof typeof translations.en): string {
+  return translations[lang][key];
+}
