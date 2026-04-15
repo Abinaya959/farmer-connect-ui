@@ -113,7 +113,17 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const updateAnalysisSession = async (data: Partial<AnalysisData>): Promise<void> => {
     if (!analysisSessionId) return;
 
-    const updateData: Record<string, any> = {};
+    const updateData: {
+      temperature?: number;
+      humidity?: number;
+      storage_days?: number;
+      risk_level?: string;
+      risk_score?: number;
+      spoilage_hours?: number;
+      risk_reasons?: string[];
+      recommendations?: string[];
+      crop_id?: string;
+    } = {};
 
     if (data.temperature !== undefined) updateData.temperature = data.temperature;
     if (data.humidity !== undefined) updateData.humidity = data.humidity;
@@ -127,7 +137,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
 
     await supabase
       .from('analysis_sessions')
-      .update(updateData)
+      .update(updateData as any)
       .eq('id', analysisSessionId);
 
     setAnalysisData(prev => prev ? { ...prev, ...data } : data as AnalysisData);
