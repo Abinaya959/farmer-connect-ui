@@ -46,10 +46,15 @@ export default function SignUpPage() {
     });
 
     if (error) {
+      const isExisting = error.message?.includes('already registered');
       toast({
         variant: 'destructive',
-        title: isTA ? 'பதிவு தோல்வி' : 'Sign up failed',
-        description: error.message,
+        title: isExisting
+          ? (isTA ? 'கணக்கு ஏற்கனவே உள்ளது' : 'Account already exists')
+          : (isTA ? 'பதிவு தோல்வி' : 'Sign up failed'),
+        description: isExisting
+          ? (isTA ? 'இந்த மின்னஞ்சலில் ஏற்கனவே கணக்கு உள்ளது. உள்நுழையவும்.' : 'An account with this email already exists. Please login instead.')
+          : error.message,
       });
     } else {
       toast({
