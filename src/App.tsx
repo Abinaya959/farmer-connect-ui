@@ -7,8 +7,11 @@ import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import { SessionProvider } from "@/contexts/SessionContext";
 import Chatbot from "@/components/Chatbot";
 
-import LanguageSelection from "./pages/LanguageSelection";
+import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 import Home from "./pages/Home";
 import StartFromScratch from "./pages/StartFromScratch";
 import ExistingCrop from "./pages/ExistingCrop";
@@ -28,8 +31,11 @@ function AppRoutes() {
   return (
     <>
       <Routes>
-        <Route path="/" element={isLanguageSelected ? <Navigate to="/home" /> : <LanguageSelection />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/start-fresh" element={<StartFromScratch />} />
         <Route path="/existing-crop" element={<ExistingCrop />} />
