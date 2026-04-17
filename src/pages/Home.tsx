@@ -133,7 +133,7 @@ export default function Home() {
             </Card>
             <Card
               className="cursor-pointer p-3 text-center transition-all hover:shadow-md active:scale-[0.97]"
-              onClick={() => navigate('/schemes')}
+              onClick={() => navigate('/market-prices')}
             >
               <TrendingUp className="mx-auto h-6 w-6 text-emerald-600 mb-1" />
               <p className="text-[11px] font-medium text-foreground leading-tight">{t('home.marketPrices')}</p>
