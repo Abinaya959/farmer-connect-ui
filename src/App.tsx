@@ -20,6 +20,7 @@ import RiskPrediction from "./pages/RiskPrediction";
 import Actions from "./pages/Actions";
 import Explainability from "./pages/Explainability";
 import Schemes from "./pages/Schemes";
+import MarketPrices from "./pages/MarketPrices";
 import Summary from "./pages/Summary";
 import NotFound from "./pages/NotFound";
 
@@ -44,6 +45,7 @@ function AppRoutes() {
         <Route path="/actions" element={<Actions />} />
         <Route path="/explainability" element={<Explainability />} />
         <Route path="/schemes" element={<Schemes />} />
+        <Route path="/market-prices" element={<MarketPrices />} />
         <Route path="/summary" element={<Summary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
