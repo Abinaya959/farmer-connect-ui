@@ -144,16 +144,41 @@ export default function LandingPage() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <div className="hidden items-center gap-1 sm:flex">
-              <Globe className="h-4 w-4 text-muted-foreground" />
-              <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value as 'ta' | 'en')}
-                className="rounded-md border border-input bg-background px-2 py-1.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            {/* Modern segmented language switch */}
+            <div
+              role="radiogroup"
+              aria-label="Language"
+              className="relative hidden h-9 items-center rounded-full border border-emerald-200 bg-emerald-50/60 p-1 shadow-inner sm:flex"
+            >
+              <span
+                aria-hidden
+                className={`absolute top-1 bottom-1 w-[calc(50%-0.25rem)] rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 shadow-md transition-transform duration-300 ease-out ${
+                  language === 'en' ? 'translate-x-0' : 'translate-x-full'
+                }`}
+              />
+              <button
+                type="button"
+                role="radio"
+                aria-checked={language === 'en'}
+                onClick={() => setLanguage('en')}
+                className={`relative z-10 flex items-center gap-1 rounded-full px-3 text-xs font-semibold transition-colors ${
+                  language === 'en' ? 'text-white' : 'text-emerald-800 hover:text-emerald-900'
+                }`}
               >
-                <option value="en">English</option>
-                <option value="ta">தமிழ்</option>
-              </select>
+                <Globe className="h-3.5 w-3.5" />
+                EN
+              </button>
+              <button
+                type="button"
+                role="radio"
+                aria-checked={language === 'ta'}
+                onClick={() => setLanguage('ta')}
+                className={`relative z-10 rounded-full px-3 text-xs font-semibold transition-colors ${
+                  language === 'ta' ? 'text-white' : 'text-emerald-800 hover:text-emerald-900'
+                }`}
+              >
+                தமிழ்
+              </button>
             </div>
             <Button
               size="sm"
@@ -484,13 +509,10 @@ export default function LandingPage() {
               </h4>
               <ul className="mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2 text-emerald-200">
-                  <Mail className="h-4 w-4" /> support@vivasai.com
-                </li>
-                <li className="flex items-center gap-2 text-emerald-200">
-                  <Phone className="h-4 w-4" /> 1800-XXX-XXXX
-                </li>
-                <li className="flex items-center gap-2 text-emerald-200">
-                  <Smartphone className="h-4 w-4" /> {isTA ? 'மொபைல் செயலி விரைவில்' : 'Mobile app coming soon'}
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:support.vivasai@gmail.com" className="hover:text-white">
+                    support.vivasai@gmail.com
+                  </a>
                 </li>
               </ul>
             </div>
