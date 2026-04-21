@@ -248,6 +248,36 @@ export type Database = {
         }
         Relationships: []
       }
+      reviews: {
+        Row: {
+          created_at: string
+          id: string
+          language: string
+          location: string
+          message: string
+          name: string
+          rating: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          language?: string
+          location: string
+          message: string
+          name: string
+          rating?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          language?: string
+          location?: string
+          message?: string
+          name?: string
+          rating?: number
+        }
+        Relationships: []
+      }
       schemes: {
         Row: {
           apply_link: string | null

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import heroImage from '@/assets/hero-farming.jpg';
 import farmerImage from '@/assets/farmer-tech.jpg';
+import ReviewsSection from '@/components/ReviewsSection';
 
 const features = [
   {
@@ -76,27 +77,6 @@ const stats = [
   { value: '38', en: 'Districts Covered', ta: 'மாவட்டங்கள்' },
   { value: '50+', en: 'Crops Supported', ta: 'பயிர் வகைகள்' },
   { value: '24/7', en: 'AI Support', ta: 'AI ஆதரவு' },
-];
-
-const testimonials = [
-  {
-    name: 'Rajesh Kumar',
-    location: 'Coimbatore',
-    en: 'VIVASAI helped me choose the right crop for my land. My yield increased by 30% this season!',
-    ta: 'விவசாய் என் நிலத்திற்கு சரியான பயிரை தேர்வு செய்ய உதவியது. என் விளைச்சல் 30% அதிகரித்தது!',
-  },
-  {
-    name: 'Lakshmi Devi',
-    location: 'Madurai',
-    en: 'The market price alerts saved my onion harvest. I sold at the best time and got 40% more profit.',
-    ta: 'சந்தை விலை எச்சரிக்கைகள் என் வெங்காய அறுவடையை காப்பாற்றியது. சிறந்த நேரத்தில் விற்றேன்.',
-  },
-  {
-    name: 'Murugan S',
-    location: 'Thanjavur',
-    en: 'Found 3 government schemes I never knew about. The direct apply links made everything easy.',
-    ta: 'நான் அறியாத 3 அரசு திட்டங்களை கண்டேன். நேரடி இணைப்புகள் எல்லாவற்றையும் எளிதாக்கின.',
-  },
 ];
 
 const colorMap: Record<string, string> = {
@@ -394,46 +374,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ============ TESTIMONIALS ============ */}
-      <section id="testimonials" className="bg-background py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">
-              {isTA ? 'விவசாயிகள் சொல்வது' : 'Trusted by Farmers'}
-            </p>
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-              {isTA ? 'எங்கள் விவசாயிகள் என்ன சொல்கிறார்கள்' : 'What Our Farmers Say'}
-            </h2>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50/50 to-white p-6 shadow-sm transition-all hover:shadow-lg"
-              >
-                <div className="flex gap-1 text-amber-500">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground">
-                  "{isTA ? t.ta : t.en}"
-                </p>
-                <div className="mt-5 flex items-center gap-3 border-t border-emerald-100 pt-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-200 text-sm font-bold text-emerald-800">
-                    {t.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">📍 {t.location}, Tamil Nadu</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ============ REVIEWS (real, from database) ============ */}
+      <ReviewsSection />
 
       {/* ============ CTA BANNER ============ */}
       <section className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 py-16 sm:py-20">
