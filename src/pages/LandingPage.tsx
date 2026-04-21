@@ -79,27 +79,6 @@ const stats = [
   { value: '24/7', en: 'AI Support', ta: 'AI ஆதரவு' },
 ];
 
-const testimonials = [
-  {
-    name: 'Rajesh Kumar',
-    location: 'Coimbatore',
-    en: 'VIVASAI helped me choose the right crop for my land. My yield increased by 30% this season!',
-    ta: 'விவசாய் என் நிலத்திற்கு சரியான பயிரை தேர்வு செய்ய உதவியது. என் விளைச்சல் 30% அதிகரித்தது!',
-  },
-  {
-    name: 'Lakshmi Devi',
-    location: 'Madurai',
-    en: 'The market price alerts saved my onion harvest. I sold at the best time and got 40% more profit.',
-    ta: 'சந்தை விலை எச்சரிக்கைகள் என் வெங்காய அறுவடையை காப்பாற்றியது. சிறந்த நேரத்தில் விற்றேன்.',
-  },
-  {
-    name: 'Murugan S',
-    location: 'Thanjavur',
-    en: 'Found 3 government schemes I never knew about. The direct apply links made everything easy.',
-    ta: 'நான் அறியாத 3 அரசு திட்டங்களை கண்டேன். நேரடி இணைப்புகள் எல்லாவற்றையும் எளிதாக்கின.',
-  },
-];
-
 const colorMap: Record<string, string> = {
   emerald: 'bg-emerald-100 text-emerald-700',
   sky: 'bg-sky-100 text-sky-700',
