@@ -374,46 +374,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ============ TESTIMONIALS ============ */}
-      <section id="testimonials" className="bg-background py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">
-              {isTA ? 'விவசாயிகள் சொல்வது' : 'Trusted by Farmers'}
-            </p>
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-              {isTA ? 'எங்கள் விவசாயிகள் என்ன சொல்கிறார்கள்' : 'What Our Farmers Say'}
-            </h2>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50/50 to-white p-6 shadow-sm transition-all hover:shadow-lg"
-              >
-                <div className="flex gap-1 text-amber-500">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground">
-                  "{isTA ? t.ta : t.en}"
-                </p>
-                <div className="mt-5 flex items-center gap-3 border-t border-emerald-100 pt-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-200 text-sm font-bold text-emerald-800">
-                    {t.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">📍 {t.location}, Tamil Nadu</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ============ REVIEWS (real, from database) ============ */}
+      <ReviewsSection />
 
       {/* ============ CTA BANNER ============ */}
       <section className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 py-16 sm:py-20">
