@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import heroImage from '@/assets/hero-farming.jpg';
 import farmerImage from '@/assets/farmer-tech.jpg';
+import ReviewsSection from '@/components/ReviewsSection';
 
 const features = [
   {
